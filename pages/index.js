@@ -12,8 +12,9 @@ export default function Home({ properties }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      <Header />
+
       <main>
-        <Header />
         <div className="grid">
           {properties &&
             properties.map((property) => (

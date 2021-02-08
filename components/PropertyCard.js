@@ -23,7 +23,7 @@ function PropertyCard({ property }) {
         <p className="cleaning_fee">
           Cleaning fee <b>${property.cleaning_fee}</b>
         </p>
-        <p>{property.summary}</p>
+        <p className="summary">{property.summary}</p>
       </div>
     </a>
   )
