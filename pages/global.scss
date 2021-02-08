@@ -168,7 +168,7 @@ p {
   color: #2b6cb0;
   display: flex;
   align-items: center;
-  margin: 1.5em 0 1em 1em;
+  margin: 1.8em 0 1.3em 1em;
 
   svg {
     height: 1em;
@@ -224,8 +224,14 @@ p {
 }
 
 @media (max-width: 600px) {
+  .description {
+    font-size: 1.3rem;
+  }
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+  .columns {
+    grid-template-columns: 1fr;
   }
 }
