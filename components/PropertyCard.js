@@ -7,7 +7,7 @@ function PropertyCard({ property }) {
       </div>
       <div className="property_info">
         <h3>{property.name}</h3>
-        <p class="primary_info">
+        <p className="primary_info">
           <div className="guests">
             <svg
               xmlns="http://www.w3.org/2000/svg"
