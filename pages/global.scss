@@ -55,21 +55,12 @@ header {
   font-size: 1.5rem;
 }
 
-code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   gap: 1em;
 
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 .card {
@@ -191,10 +182,10 @@ p {
   font-weight: 600;
   font-size: 1.2em;
   background-color: #3182ce;
-  border-radius: 15px;
+  border-radius: 2em;
   color: #fff;
   border: 0;
-  padding: 0.8rem 3rem;
+  padding: 0.8rem 2.5rem;
   display: block;
   width: fit-content;
   margin: 2rem auto;
@@ -206,6 +197,22 @@ p {
   &:hover,
   &:focus {
     background-color: #4299e1;
+  }
+}
+
+.searchButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  right: 1em;
+  bottom: 0em;
+  z-index: 1;
+
+  svg {
+    height: 1.5em;
+    width: 1.5em;
+    margin-left: 1em;
   }
 }
 
@@ -222,6 +229,46 @@ p {
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+h2 {
+  color: #4a5568;
+  font-weight: 500;
+  margin: 2rem 1rem 0 1rem;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+  padding: 0 1em;
+  flex-flow: column;
+
+  input {
+    padding: 1em;
+    max-width: 600px;
+    width: 100%;
+    font-size: 1.1em;
+    border-radius: 15px;
+    color: #364150;
+    border: 1px solid #c4c9d2;
+
+    &:placeholder {
+      color: #364150;
+    }
+    &:focus {
+      box-shadow: 0 0 0 3px #83b8e9;
+      outline-offset: 5px;
+    }
+  }
+
+  button,
+  label {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    overflow: hidden;
   }
 }
 

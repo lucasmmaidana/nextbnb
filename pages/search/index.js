@@ -1,14 +1,33 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { useState, useRef, useEffect } from "react"
 
 import Header from "./../../components/Header"
 import PropertyCard from "./../../components/PropertyCard"
 
 export default function Search({ properties }) {
+  const [searchTerm, setSearchTerm] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const inputElement = useRef(null)
+
+  useEffect(() => {
+    if (inputElement.current) {
+      inputElement.current.focus()
+    }
+  }, [])
+
+  useEffect(() => {
+    if (properties) {
+      setIsLoading(false)
+    }
+  }, [properties])
+
   const router = useRouter()
 
   function handleSubmit(event) {
     event.preventDefault()
+    setIsLoading(true)
+    setSearchTerm(event.target["query"].value)
 
     router.push(`/search/?term=${event.target["query"].value}`)
   }
@@ -43,15 +62,37 @@ export default function Search({ properties }) {
 
       <main>
         <form onSubmit={handleSubmit}>
-          <input type="text" backgroundColor="white" name="query" />
-          <button type="submit" />
+          <label for="searchField">Search by location or description</label>
+          <input
+            ref={inputElement}
+            id="searchField"
+            placeholder="Search by location or description"
+            type="text"
+            backgroundColor="white"
+            name="query"
+          />
+          <button type="submit">Search</button>
         </form>
+        {!isLoading &&
+          (searchTerm.length ? (
+            properties.length ? (
+              <h2>Search results for {searchTerm}</h2>
+            ) : (
+              <h2>No results.</h2>
+            )
+          ) : (
+            ""
+          ))}
 
         <div className="grid">
-          {properties &&
+          {isLoading ? (
+            <div className="loader"></div>
+          ) : (
+            properties &&
             properties.map((property) => (
               <PropertyCard property={property} key={property.id} />
-            ))}
+            ))
+          )}
         </div>
       </main>
     </div>
@@ -63,7 +104,6 @@ export async function getServerSideProps({ query }) {
     `https://nextbnb-pi.vercel.app/api/search?term=${query.term}`
   )
   const data = await res.json()
-  console.log(data)
 
   const properties = data.map((property) => {
     const price = JSON.parse(JSON.stringify(property.price))

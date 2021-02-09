@@ -1,9 +1,11 @@
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import { connectToDatabase } from "../../util/mongodb"
 import Header from "../../components/Header"
 
 export default function Listing({ property }) {
+  const router = useRouter()
   return (
     <div className="container">
       <Head>
@@ -15,7 +17,7 @@ export default function Listing({ property }) {
 
       <main>
         <Link href="/">
-          <a className="go_back">
+          <a onClick={() => router.back()} className="go_back">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
