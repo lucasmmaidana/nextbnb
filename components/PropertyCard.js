@@ -1,8 +1,10 @@
+import Image from "next/image"
+
 function PropertyCard({ property }) {
   return (
     <a href={`/listing/${property.id}`} className="card">
       <div className="img_container">
-        <img src={property.img} alt={property.name} />
+        <Image layout="fill" src={property.img} alt={property.name} />
         <p className="price">${property.price}</p>
       </div>
       <div className="property_info">
