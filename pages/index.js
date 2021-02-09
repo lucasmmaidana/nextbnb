@@ -10,6 +10,19 @@ export default function Home({ properties }) {
       <Head>
         <title>Nextbnb</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Next.js project with MongoDB Atlas."
+        />
+        <meta property="og:image" content="/nextbnb_cover.png" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://nextbnb-pi.vercel.app/" />
+        <meta property="twitter:title" content="Nextbnb" />
+        <meta
+          property="twitter:description"
+          content="Next.js project with MongoDB Atlas."
+        />
+        <meta property="twitter:image" content="/nextbnb_cover.png" />
       </Head>
 
       <Header />
