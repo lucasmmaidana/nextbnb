@@ -14,7 +14,10 @@ export default function Home({ properties }) {
           name="description"
           content="Next.js project with MongoDB Atlas."
         />
-        <meta property="og:image" content="/nextbnb_cover.png" />
+        <meta
+          property="og:image"
+          content="https://nextbnb-pi.vercel.app/nextbnb_cover.png"
+        />
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://nextbnb-pi.vercel.app/" />
         <meta property="twitter:title" content="Nextbnb" />
@@ -22,7 +25,10 @@ export default function Home({ properties }) {
           property="twitter:description"
           content="Next.js project with MongoDB Atlas."
         />
-        <meta property="twitter:image" content="/nextbnb_cover.png" />
+        <meta
+          property="twitter:image"
+          content="https://nextbnb-pi.vercel.app/nextbnb_cover.png"
+        />
       </Head>
 
       <Header />
